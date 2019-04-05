@@ -4,7 +4,6 @@ class InputForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            friendList:[],
            newFriend:{
                name: "",
                age: "",
@@ -14,16 +13,15 @@ class InputForm extends React.Component {
     } 
 
 changeHandler = (event) => {
-    this.setState(prevState =>({
-        friend: {...prevState.friend, [event.target.name]:event.target.value}
-    }) )
+    console.log("Working")
+    this.setState({[event.target.name]: event.target.value})
 }
 
 
    render(){
     return(
         <div>
-          <h2>New Friend</h2>
+            <button type="submit">Add New Friend</button> 
             <form onSubmit={this.handleSubmit}>
             <input
                 type="text"
@@ -45,10 +43,9 @@ changeHandler = (event) => {
                 type="text"
                 name="email"
                 onChange = {this.changeHandler}
-                placeholder="email"
+                placeholder="Email"
                 value={this.state.newFriend.email}
-            />
-            <button type="submit">Add New Friend</button>      
+            />     
             </form>
         </div>
      )

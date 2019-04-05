@@ -36,10 +36,10 @@ class App extends Component {
     return (
       <div className="App">
      <h1> My FriendList</h1>
-      <FriendList friends={this.state.friends} />
-     
+     <InputForm/>
       <Route 
         path="/friend-form" component={InputForm}/>
+      <FriendList friends={this.state.friends} />
       </div>
     );
   }
