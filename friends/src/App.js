@@ -3,7 +3,6 @@ import './App.css';
 import axios from "axios"
 
 import FriendList from "./components/FriendList"
-import Friend from "./components/Friend"
 
 
 class App extends Component {
@@ -21,8 +20,7 @@ class App extends Component {
         this.setState({friends:response.data})
       })
       .catch((error) => {
-        console.log("There is an error here !")
-        this.setState({friends:error.data})
+        console.log(error)
       })
 
   }
@@ -31,7 +29,7 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-     <h1>My FriendList</h1>
+     <h1> My FriendList</h1>
       <FriendList friends={this.state.friends} />
       </div>
     );
