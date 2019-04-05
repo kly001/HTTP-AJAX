@@ -1,10 +1,11 @@
 import React from "react"
+import Axios from "axios";
 
-class InputForm extends React.Component {
+class InputFriend extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-           newFriend:{
+          friend:{
                name: "",
                age: "",
                email:"",
@@ -12,10 +13,6 @@ class InputForm extends React.Component {
         }
     } 
 
-changeHandler = (event) => {
-    console.log("Working")
-    this.setState({[event.target.name]: event.target.value})
-}
 
 
    render(){
@@ -28,7 +25,7 @@ changeHandler = (event) => {
                 name="name"
                 onChange = {this.changeHandler}
                 placeholder="Name"
-                value={this.state.newFriend.name}
+                value={this.state.friend.name}
             />
 
             <input
@@ -36,7 +33,7 @@ changeHandler = (event) => {
                 name="age"
                 onChange = {this.changeHandler}
                 placeholder="Age"
-                value={this.state.newFriend.age}
+                value={this.state.friend.age}
             />
 
             <input
@@ -44,11 +41,11 @@ changeHandler = (event) => {
                 name="email"
                 onChange = {this.changeHandler}
                 placeholder="Email"
-                value={this.state.newFriend.email}
+                value={this.state.friend.email}
             />     
             </form>
         </div>
      )
    } 
 }
-export default InputForm
+export default InputFriend

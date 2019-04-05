@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from "axios"
-import {Route} from "react-router-dom"
+
 
 import FriendList from "./components/FriendList"
-import InputForm from "./components/InputForm"
+import InputFriend from "./components/InputFriend"
+
 
 class App extends Component {
   constructor() {
@@ -28,17 +29,22 @@ class App extends Component {
       .catch((error) => {
         console.log(error)
       })
-
   }
+
+  changeHandler = (event) => {
+    this.setState(({
+        friend: {[event.target.name]:event.target.value}
+    }))  
+  }
+  
+
   
   render() {
     console.log(this.state)
     return (
       <div className="App">
      <h1> My FriendList</h1>
-     <InputForm/>
-      <Route 
-        path="/friend-form" component={InputForm}/>
+     <InputFriend addFriend={this.addFriend}/>
       <FriendList friends={this.state.friends} />
       </div>
     );
