@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from "axios"
+import {Route} from "react-router-dom"
 
 import FriendList from "./components/FriendList"
-
+import InputForm from "./components/InputForm"
 
 class App extends Component {
   constructor() {
     super()
     this.state={
-      friends:[]
+      friends:[],
+      newFriend: {
+        name: "",
+        age: "",
+        email: "",
+      }
     }
   }
 
@@ -31,6 +37,9 @@ class App extends Component {
       <div className="App">
      <h1> My FriendList</h1>
       <FriendList friends={this.state.friends} />
+     
+      <Route 
+        path="/friend-form" component={InputForm}/>
       </div>
     );
   }
